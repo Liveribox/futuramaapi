@@ -33,6 +33,11 @@ export const FuturamaGrid = () => {
         setFuturamas(updateItems); 
     }
 
+    const deleteItem = (deleteItem) => {
+        const updatedItems = futuramas.filter(futurama => futurama.id !== deleteItem);
+        setFuturamas(updatedItems);
+    }
+
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
@@ -47,6 +52,8 @@ export const FuturamaGrid = () => {
                         key={futurama.id}
                         {...futurama}
                         editItem={editItem}
+                        deleteItem={deleteItem}
+                        
                     />
 
                 ))

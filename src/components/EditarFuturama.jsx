@@ -22,7 +22,7 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
         editItem(Item)
     }
 
-    const enviar = () => {
+    const editar = () => {
         EditItem()
         setOpenForm(false);
     }
@@ -63,7 +63,7 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
                     onChange={(e) => setinputImagen(e.target.value)}
                 />
 
-                <button type="button" onClick={enviar}>Enviar</button>
+                <button type="button" onClick={editar}>Enviar</button>
                 
             </form>
         </>
