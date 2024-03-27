@@ -3,8 +3,6 @@ import { useState } from "react";
 
 export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
 
-    //{name,gender,species,image, id ,editItem,setOpenForm}
-
     const [inputName, setInputName] = useState('');
     const [inputGender, setInputGender] = useState('');
     const [inputSpecies, setInputSpecies] = useState('');
@@ -30,8 +28,8 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
     return(
 
         <>
-            <form>
-                <label htmlFor="name">Name:</label>
+            <form className="formulario">
+                <label htmlFor="name">Nombre:</label>
                 <input
                     type="text"
                     id="name"
@@ -39,7 +37,7 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
                     onChange={(e) => setInputName(e.target.value)}
                 />
 
-                <label htmlFor="gender">Gender:</label>
+                <label htmlFor="gender">Genero:</label>
                 <input
                     type="text"
                     id="gender"
@@ -47,7 +45,7 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
                     onChange={(e) => setInputGender(e.target.value)}
                 />
 
-                <label htmlFor="species">Species:</label>
+                <label htmlFor="species">Especies:</label>
                 <input
                     type="text"
                     id="species"
@@ -55,7 +53,7 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
                     onChange={(e) => setInputSpecies(e.target.value)}
                 />
 
-                <label htmlFor="images">Species:</label>
+                <label htmlFor="images">Imagenes:</label>
                 <input
                     type="text"
                     id="images"
@@ -66,9 +64,6 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
                 <button type="button" onClick={editar}>Enviar</button>
                 
             </form>
-        </>
-        
-
-            
+        </> 
     )
 }

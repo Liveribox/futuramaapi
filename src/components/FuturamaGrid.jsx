@@ -34,8 +34,8 @@ export const FuturamaGrid = () => {
     }
 
     const deleteItem = (deleteItem) => {
-        const updatedItems = futuramas.filter(futurama => futurama.id !== deleteItem);
-        setFuturamas(updatedItems);
+        const deletedItems = futuramas.filter(futurama => futurama.id !== deleteItem);
+        setFuturamas(deletedItems);
     }
 
     return(

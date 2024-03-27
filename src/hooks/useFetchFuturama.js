@@ -7,7 +7,7 @@ export const useFetchFuturamas = () => {
     const [isLoading, setIsLoading] = useState( true );
 
     const getFuturamas = async() => {
-        const newFuturamas = await getItems( );
+        const newFuturamas = await getItems();
         setFuturamas(newFuturamas);
         setIsLoading(false);
     }

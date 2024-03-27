@@ -14,7 +14,7 @@ export const FuturamaItem = ({name,gender,species,image,id, editItem, deleteItem
         <p>Especie: {species}</p>
         <img src={image} alt={name}/>
 
-        <button type="button" onClick={() => {setOpenForm(true)}}>Editar</button>
+        <button type="button"  onClick={() => {setOpenForm(true)}}>Editar</button>
         {OpenForm && <EditarFuturama id={id} editItem={editItem} setOpenForm={setOpenForm}/>}
 
         <button type="button" onClick={() => {deleteItem(id)}}>Eliminar</button>
