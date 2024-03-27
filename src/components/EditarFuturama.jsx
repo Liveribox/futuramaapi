@@ -1,27 +1,29 @@
 import { useState } from "react";
 
 
-export const CrearFuturama = ({addItem,newId,setOpenForm}) => {
-  
+export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
+
+    //{name,gender,species,image, id ,editItem,setOpenForm}
+
     const [inputName, setInputName] = useState('');
     const [inputGender, setInputGender] = useState('');
     const [inputSpecies, setInputSpecies] = useState('');
     const [inputImagen, setinputImagen] = useState('');
 
-    const AddItem = () => {
+    const EditItem = () => {
         const Item = {
-            id: newId + 1,
+            id: id,
             name: inputName,
             gender: inputGender,
             species: inputSpecies,
             image: inputImagen
         }
 
-        addItem(Item)
+        editItem(Item)
     }
 
     const enviar = () => {
-        AddItem()
+        EditItem()
         setOpenForm(false);
     }
 
@@ -69,7 +71,4 @@ export const CrearFuturama = ({addItem,newId,setOpenForm}) => {
 
             
     )
-
-    
-  
 }

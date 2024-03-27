@@ -79,3 +79,12 @@ body{
   border-radius: 20em;
   font-size: 2em;
 }
+
+.card button{
+  margin-top: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+  border-radius: 20em;
+  font-size: 2em;
+}

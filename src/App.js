@@ -7,8 +7,6 @@ import { useState } from 'react';
 
 export const  App = () => {
 
-  //const [ categories, setCategories ] = useState([ 'One Punch' ]);
-
   return(
     
     <>
