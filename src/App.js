@@ -11,19 +11,12 @@ export const  App = () => {
 
   return(
     <>
-      <FuturamaGrid/>
-    </>
-
-    /*
-    <>
       <Router>
         <Routes>
           <Route path='/' Component={LoginForm}></Route>
           <Route path='/futugrid' Component={FuturamaGrid}></Route>
         </Routes>
       </Router>
-    </>*/
+    </>
   )
-
-
 }

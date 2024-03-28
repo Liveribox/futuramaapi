@@ -71,6 +71,7 @@ export const FuturamaGrid = () => {
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
+            <button>Salir</button>
 
             {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm} />}
             {OpenForm2 && <EditarFuturama id={Iddato} editItem={editItem} setOpenForm2={setOpenForm2}/>}

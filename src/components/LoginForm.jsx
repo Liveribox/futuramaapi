@@ -1,6 +1,9 @@
 import { useState } from "react" 
 import { LoginUsuario } from "./LoginUsuario"
 import { useNavigate } from "react-router-dom";
+import { Input } from "antd"
+import { Button } from "antd/es/radio";
+import { UserOutlined } from '@ant-design/icons';
 
 export const LoginForm = () => {
 
@@ -31,10 +34,15 @@ export const LoginForm = () => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)} placeholder="Usuario"  />
-            <input type="password" value={contraseña} onChange={(e) => setContraseña(e.target.value)} placeholder="Contraseña"  />
-            <button type="submit">Iniciar sesión</button>
+        <form onSubmit={handleSubmit} className="loginForm">
+            <h1 className="loginH1">Iniciar Sesión</h1>
+            <input type="text" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)} placeholder="Usuario"  className="loginInput" />
+            <br/>
+            <br/>
+            <input type="password" value={contraseña} onChange={(e) => setContraseña(e.target.value)} placeholder="Contraseña"  className="loginInput" />
+            <br/>
+            <br/>
+            <button className="loginButton" type="submit">Iniciar sesión</button>
             {error && <p>{error}</p>}    
         </form>
     );
