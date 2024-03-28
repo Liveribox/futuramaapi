@@ -1,9 +1,7 @@
-import { useState } from "react" 
-import { LoginUsuario } from "./LoginUsuario"
+import { useState } from "react"; 
+import { LoginUsuario } from "./LoginUsuario";
 import { useNavigate } from "react-router-dom";
-import { Input } from "antd"
-import { Button } from "antd/es/radio";
-import { UserOutlined } from '@ant-design/icons';
+
 
 export const LoginForm = () => {
 
@@ -43,7 +41,7 @@ export const LoginForm = () => {
             <br/>
             <br/>
             <button className="loginButton" type="submit">Iniciar sesión</button>
-            {error && <p>{error}</p>}    
+            {error && <p className="loginError">{error}</p>}    
         </form>
     );
 }
