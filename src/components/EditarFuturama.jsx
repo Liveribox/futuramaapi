@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { Modal , Input } from "antd";
 
 
-export const EditarFuturama = ({id ,editItem,setOpenForm2}) => {
+export const EditarFuturama = ({id ,name,gender,specie,image,editItem,setOpenForm2}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputGender, setInputGender] = useState('');
     const [inputSpecies, setInputSpecies] = useState('');
     const [inputImagen, setinputImagen] = useState('');
 
+
+    
     const EditItem = () => {
         const Item = {
             id: id,
@@ -25,45 +28,37 @@ export const EditarFuturama = ({id ,editItem,setOpenForm2}) => {
         setOpenForm2(false);
     }
 
+    const aparecerModal = () => {
+        setOpenForm2(true)
+    }
+
+    const esconderModal = () => {
+        setOpenForm2(false)
+    };
+
+    
     return(
 
-        <>
-            <form className="formulario">
-                <label htmlFor="name">Nombre:</label>
-                <input
-                    type="text"
-                    id="name"
-                    value={inputName}
-                    onChange={(e) => setInputName(e.target.value)}
-                />
+        <Modal
+        title="Editar"
+        open={aparecerModal}
+        onOk={editar}
+        onCancel={esconderModal}
+        okText="Editar"
+        cancelText="Cancelar"
+      >
+        <Input className="inputEdit" placeholder={name} id="name" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+        <br/>
+        <br/>
+        <Input className="inputEdit" placeholder={gender} id="genero" value={inputGender} onChange={(e) => setInputGender(e.target.value)}/>
+        <br/>
+        <br/>
+        <Input className="inputEdit" placeholder={specie} id="specie" value={inputSpecies} onChange={(e) => setInputSpecies(e.target.value)}/>
+        <br/>
+        <br/>
+        <Input className="inputEdit" placeholder={image} id="image" value={inputImagen} onChange={(e) => setinputImagen(e.target.value)}/>
+        
+      </Modal>
 
-                <label htmlFor="gender">Genero:</label>
-                <input
-                    type="text"
-                    id="gender"
-                    value={inputGender}
-                    onChange={(e) => setInputGender(e.target.value)}
-                />
-
-                <label htmlFor="species">Especies:</label>
-                <input
-                    type="text"
-                    id="species"
-                    value={inputSpecies}
-                    onChange={(e) => setInputSpecies(e.target.value)}
-                />
-
-                <label htmlFor="images">Imagenes:</label>
-                <input
-                    type="text"
-                    id="images"
-                    value={inputImagen}
-                    onChange={(e) => setinputImagen(e.target.value)}
-                />
-
-                <button type="button" onClick={editar}>Enviar</button>
-                
-            </form>
-        </> 
     )
 }

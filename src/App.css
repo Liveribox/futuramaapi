@@ -145,3 +145,7 @@ body{
 button{
   cursor: pointer;
 }
+
+.inputEdit::placeholder{
+  color: black;
+}

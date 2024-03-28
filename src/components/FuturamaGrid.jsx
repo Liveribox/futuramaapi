@@ -11,7 +11,13 @@ export const FuturamaGrid = () => {
 
     const [OpenForm, setOpenForm] = useState(false)
     const [OpenForm2, setOpenForm2] = useState(false)
+
+    //Variables para pasarles el valor a EditFuturama
     const [Iddato, setIddato] = useState('')
+    const [name, setName] = useState('')
+    const [gender, setGender] = useState('')
+    const [specie, setSpecie] = useState('')
+    const [image, setImage] = useState('')
 
     const addItem = (newItem) => {
         setFuturamas([...futuramas , newItem])
@@ -58,7 +64,7 @@ export const FuturamaGrid = () => {
         },
         {
             name: "Editar",
-            selector: row => <button onClick={() =>{setOpenForm2(true) ; setIddato(row.id)}}>Editar</button>
+            selector: row => <button onClick={() =>{setOpenForm2(true) ; setIddato(row.id) ; setName(row.name) ; setGender(row.gender) ; setSpecie(row.species) ; setImage(row.image)}}>Editar</button>
         },
         {
             name: "Eliminar",
@@ -74,7 +80,7 @@ export const FuturamaGrid = () => {
             <button>Salir</button>
 
             {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm} />}
-            {OpenForm2 && <EditarFuturama id={Iddato} editItem={editItem} setOpenForm2={setOpenForm2}/>}
+            {OpenForm2 && <EditarFuturama id={Iddato} name={name} gender={gender}  specie={specie} image={image} editItem={editItem} setOpenForm2={setOpenForm2}/>}
 
             <DataTable
                 columns={columns}
