@@ -75,10 +75,34 @@ body{
 }
 
 .botonCrear{
-  margin-top: 2em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   margin-left: 2em;
   border-radius: 20em;
-  font-size: 2em;
+  font-size: 1em;
+  background-color: #FE76FF;
+}
+
+.botonSalir{
+  float: right;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-right: 2em;
+  font-size: 1em;
+  border-radius: 20em;
+  background-color: #FF114F;
+}
+
+.botonEditar{
+  font-size: 1em;
+  border-radius: 20em;
+  background-color: #68D8D8;
+}
+
+.botonEliminar{
+  font-size: 1em;
+  border-radius: 20em;
+  background-color: #FF00A1;
 }
 
 .card button{
@@ -153,3 +177,4 @@ button{
 .modal .ant-btn-primary {
   background-color: #D93F87;
 }
+

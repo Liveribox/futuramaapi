@@ -64,11 +64,11 @@ export const FuturamaGrid = () => {
         },
         {
             name: "Editar",
-            selector: row => <button onClick={() =>{setOpenForm2(true) ; setIddato(row.id) ; setName(row.name) ; setGender(row.gender) ; setSpecie(row.species) ; setImage(row.image)}}>Editar</button>
+            selector: row => <button className="botonEditar" onClick={() =>{setOpenForm2(true) ; setIddato(row.id) ; setName(row.name) ; setGender(row.gender) ; setSpecie(row.species) ; setImage(row.image)}}>Editar</button>
         },
         {
             name: "Eliminar",
-            selector: row => <button onClick={() =>{deleteItem(row.id)}}>Eliminar</button>
+            selector: row => <button className="botonEliminar" onClick={() =>{deleteItem(row.id)}}>Eliminar</button>
         }
       ];
 
@@ -77,12 +77,13 @@ export const FuturamaGrid = () => {
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
-            <button>Salir</button>
+            <button className="botonSalir">Salir</button>
 
             {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm} />}
             {OpenForm2 && <EditarFuturama id={Iddato} name={name} gender={gender}  specie={specie} image={image} editItem={editItem} setOpenForm2={setOpenForm2}/>}
 
             <DataTable
+                className="datatable"
                 columns={columns}
                 data={futuramas}
                 highlightOnHover
