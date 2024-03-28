@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { EditarFuturama } from "./EditarFuturama";
-
+import DataTable from "react-data-table-component";
 
 
 export const FuturamaItem = ({name,gender,species,image,id, editItem, deleteItem}) => {
@@ -8,18 +8,10 @@ export const FuturamaItem = ({name,gender,species,image,id, editItem, deleteItem
   const [OpenForm, setOpenForm] = useState(false)
 
   return (
-    <div className="card">
-        <p>Nombre: {name}</p>
-        <p>Genero: {gender}</p>
-        <p>Especie: {species}</p>
-        <img src={image} alt={name}/>
-
-        <button type="button"  onClick={() => {setOpenForm(true)}}>Editar</button>
+    
+    <>
         {OpenForm && <EditarFuturama id={id} editItem={editItem} setOpenForm={setOpenForm}/>}
-
-        <button type="button" onClick={() => {deleteItem(id)}}>Eliminar</button>
-        
-        
-    </div>
-  )
-}
+    </>
+    
+  );
+};

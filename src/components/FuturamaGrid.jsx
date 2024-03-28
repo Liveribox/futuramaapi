@@ -3,13 +3,15 @@ import { useFetchFuturamas } from "../hooks/useFetchFuturama"
 import { useState } from "react";
 import { CrearFuturama } from "./CrearFuturama";
 import { EditarFuturama } from "./EditarFuturama";
-
+import DataTable from "react-data-table-component";
 
 export const FuturamaGrid = () => {
   
     const {futuramas, setFuturamas ,isLoading} = useFetchFuturamas();
 
     const [OpenForm, setOpenForm] = useState(false)
+    const [OpenForm2, setOpenForm2] = useState(false)
+    const [Iddato, setIddato] = useState('')
 
     const addItem = (newItem) => {
         setFuturamas([...futuramas , newItem])
@@ -28,7 +30,6 @@ export const FuturamaGrid = () => {
             }
             return futurama;
 
-
         });
         setFuturamas(updateItems); 
     }
@@ -38,27 +39,66 @@ export const FuturamaGrid = () => {
         setFuturamas(deletedItems);
     }
 
+    const columns = [
+        {
+          name: 'Nombre',
+          selector: row => row.name,
+        },
+        {
+          name: 'Genero',
+          selector: row => row.gender
+        },
+        {
+          name: 'Especie',
+          selector: row => row.species, 
+        },
+        {
+          name: "Imagen",
+          selector: row => <img id="imageDataTable" src={row.image} alt={row.name}/>,
+        },
+        {
+            name: "Editar",
+            selector: row => <button onClick={() =>{setOpenForm2(true) ; setIddato(row.id)}}>Editar</button>
+        },
+        {
+            name: "Eliminar",
+            selector: row => <button onClick={() =>{deleteItem(row.id)}}>Eliminar</button>
+        }
+      ];
+
+      
+
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
 
             {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm} />}
+            {OpenForm2 && <EditarFuturama id={Iddato} editItem={editItem} setOpenForm2={setOpenForm2}/>}
 
-            {
-                futuramas.map( (futurama) => (
+            <DataTable
+                columns={columns}
+                data={futuramas}
+                highlightOnHover
+                showGridlines
+                responsive
+            />
 
-                    <FuturamaItem
+        {
+            futuramas.map( (futurama) => (
 
-                        key={futurama.id}
-                        {...futurama}
-                        editItem={editItem}
-                        deleteItem={deleteItem}
-                        
-                    />
+                <FuturamaItem
+                    key={futurama.id}
+                    {...futurama}
+                    //editItem={editItem}
+                    //deleteItem={deleteItem}
+                />
 
-                ))
-            }
+            ))
+        }
+            
         </div>
+
+        
     )
 
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
+export const EditarFuturama = ({id ,editItem,setOpenForm2}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputGender, setInputGender] = useState('');
@@ -22,7 +22,7 @@ export const EditarFuturama = ({id ,editItem,setOpenForm}) => {
 
     const editar = () => {
         EditItem()
-        setOpenForm(false);
+        setOpenForm2(false);
     }
 
     return(

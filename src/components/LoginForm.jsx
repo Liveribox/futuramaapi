@@ -1,13 +1,14 @@
 import { useState } from "react" 
 import { LoginUsuario } from "./LoginUsuario"
-import { FuturamaGrid } from "./FuturamaGrid";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
 
     const [nombreUsuario, setNombreUsuario] = useState('');
     const [contraseña, setContraseña] = useState('');
     const [error, setError] = useState('');
-    
+
+    const navegar = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -16,13 +17,14 @@ export const LoginForm = () => {
             const isValid = await LoginUsuario(nombreUsuario, contraseña);
 
             if (isValid) {
-                <FuturamaGrid />
+                navegar('/futugrid');
             } else {
                 setError('Nombre de usuario o contraseña incorrectos.');
             }
 
         } catch (error) {
             setError('Ocurrió un error al intentar iniciar sesión.');
+            setError('Comprueba si la API está activa');
         }
         
     };

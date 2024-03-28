@@ -70,7 +70,7 @@ body{
 }
 
 .card img {
-  width: 30%;
+  width: 5%;
 }
 
 .botonCrear{
@@ -87,6 +87,10 @@ body{
   margin-bottom: 1em;
   border-radius: 20em;
   font-size: 2em;
+}
+
+#imageDataTable{
+  width: 50%;
 }
 
 .formulario{
