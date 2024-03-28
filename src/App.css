@@ -38,6 +38,7 @@
 }
 
 body{
+  background-image: url("https://i.pinimg.com/originals/64/a0/c7/64a0c7e67e94e682e8ea78ffc5cbab0f.gif");
   background-color: #FF6348FF;
 }
 
@@ -118,7 +119,7 @@ body{
 
 .loginButton{
   padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #D93F87;
     color: white;
     border: none;
     border-radius: 5px;
