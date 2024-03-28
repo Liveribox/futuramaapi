@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Modal , Input } from "antd";
 
 
 export const CrearFuturama = ({addItem,newId,setOpenForm}) => {
@@ -20,14 +21,44 @@ export const CrearFuturama = ({addItem,newId,setOpenForm}) => {
         addItem(Item)
     }
 
-    const enviar = () => {
+    const crear = () => {
         AddItem()
         setOpenForm(false);
     }
 
+    const aparecerModal = () => {
+        setOpenForm(true)
+    }
+
+    const esconderModal = () => {
+        setOpenForm(false)
+    };
+
     return(
 
-        <>
+        <Modal
+        className="modal"
+        title="Crear"
+        open={aparecerModal}
+        onOk={crear}
+        onCancel={esconderModal}
+        okText="Crear"
+        cancelText="Cancelar"
+      >
+        <Input placeholder="Nombre" id="name" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+        <br/>
+        <br/>
+        <Input placeholder="Genero" id="genero" value={inputGender} onChange={(e) => setInputGender(e.target.value)}/>
+        <br/>
+        <br/>
+        <Input placeholder="Especie" id="specie" value={inputSpecies} onChange={(e) => setInputSpecies(e.target.value)}/>
+        <br/>
+        <br/>
+        <Input placeholder="Enlace Imagen" id="image" value={inputImagen} onChange={(e) => setinputImagen(e.target.value)}/>
+        
+      </Modal>
+
+        /*<>
             <form>
                 <label htmlFor="name">Name:</label>
                 <input
@@ -64,7 +95,7 @@ export const CrearFuturama = ({addItem,newId,setOpenForm}) => {
                 <button type="button" onClick={enviar}>Enviar</button>
                 
             </form>
-        </>
+        </>*/
         
 
             

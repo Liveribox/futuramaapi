@@ -40,6 +40,7 @@ export const EditarFuturama = ({id ,name,gender,specie,image,editItem,setOpenFor
     return(
 
         <Modal
+        className="modal"
         title="Editar"
         open={aparecerModal}
         onOk={editar}

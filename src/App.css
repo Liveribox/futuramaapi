@@ -149,3 +149,7 @@ button{
 .inputEdit::placeholder{
   color: black;
 }
+
+.modal .ant-btn-primary {
+  background-color: #D93F87;
+}
