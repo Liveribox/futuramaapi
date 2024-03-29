@@ -7,7 +7,7 @@ import DataTable from "react-data-table-component";
 
 export const FuturamaGrid = () => {
   
-    const {futuramas, setFuturamas ,isLoading} = useFetchFuturamas();
+    const {futuramas, setFuturamas} = useFetchFuturamas();
 
     const [OpenForm, setOpenForm] = useState(false)
     const [OpenForm2, setOpenForm2] = useState(false)
