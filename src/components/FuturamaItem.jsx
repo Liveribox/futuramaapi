@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { EditarFuturama } from "./EditarFuturama";
-import DataTable from "react-data-table-component";
+
 
 
 export const FuturamaItem = ({name,gender,species,image,id, editItem, deleteItem}) => {
