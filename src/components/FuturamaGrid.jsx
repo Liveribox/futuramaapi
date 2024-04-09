@@ -1,4 +1,3 @@
-import { FuturamaItem } from "./FuturamaItem"
 import { useFetchFuturamas } from "../hooks/useFetchFuturama"
 import { useState } from "react";
 import { CrearFuturama } from "./CrearFuturama";
