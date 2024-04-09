@@ -4,6 +4,9 @@ import { useState } from "react";
 import { CrearFuturama } from "./CrearFuturama";
 import { EditarFuturama } from "./EditarFuturama";
 import DataTable from "react-data-table-component";
+import { useNavigate } from "react-router-dom";
+import { BackTop , Image , Input } from "antd";
+
 
 export const FuturamaGrid = () => {
   
@@ -19,10 +22,29 @@ export const FuturamaGrid = () => {
     const [specie, setSpecie] = useState('')
     const [image, setImage] = useState('')
 
+
+    //Variable para filtrar personaje
+    const [filtro, setFiltro] = useState('')
+
+    //Funciones para filtrar personajes
+    const filtrarPersonajes = (e) => {
+        const valor = e.target.value;
+        setFiltro(valor);
+    };
+
+    const personajesFiltrados = futuramas.filter(futurama =>
+        futurama.name.toLowerCase().includes(filtro.toLowerCase())
+    );
+
+    //Te permite navegar entre pantallas
+    const navegar = useNavigate();
+
+    //Funcion para añadir personajes
     const addItem = (newItem) => {
         setFuturamas([...futuramas , newItem])
     }
 
+    //Funcion para editar personajes
     const editItem = (editItem) => {
         const updateItems = futuramas.map(futurama => {
             if(futurama.id === editItem.id ){
@@ -40,6 +62,7 @@ export const FuturamaGrid = () => {
         setFuturamas(updateItems); 
     }
 
+    //Funcion para borrar personajes
     const deleteItem = (deleteItem) => {
         const deletedItems = futuramas.filter(futurama => futurama.id !== deleteItem);
         setFuturamas(deletedItems);
@@ -60,7 +83,7 @@ export const FuturamaGrid = () => {
         },
         {
           name: "Imagen",
-          selector: row => <img id="imageDataTable" src={row.image} alt={row.name}/>,
+          selector: row => <Image id="imageDataTable" src={row.image} alt={row.name}/>,
         },
         {
             name: "Editar",
@@ -77,22 +100,26 @@ export const FuturamaGrid = () => {
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
-            <button className="botonSalir">Salir</button>
+            <button className="botonSalir" onClick={() => {navegar('/');}}>Salir</button>
 
-            {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm} />}
+            {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm}/>}
             {OpenForm2 && <EditarFuturama id={Iddato} name={name} gender={gender}  specie={specie} image={image} editItem={editItem} setOpenForm2={setOpenForm2}/>}
+
+            <Input className="inputBuscadorPersonajes" placeholder="Buscar personaje" value={filtro} onChange={filtrarPersonajes}></Input>
 
             <DataTable
                 className="datatable"
                 columns={columns}
-                data={futuramas}
+                data={personajesFiltrados}
                 highlightOnHover
                 showGridlines
                 responsive
             />
 
+            <BackTop>
+            </BackTop>            
         {
-            futuramas.map( (futurama) => (
+            /*futuramas.map( (futurama) => (
 
                 <FuturamaItem
                     key={futurama.id}
@@ -101,7 +128,7 @@ export const FuturamaGrid = () => {
                     //deleteItem={deleteItem}
                 />
 
-            ))
+            ))*/
         }
             
         </div>
@@ -110,3 +137,5 @@ export const FuturamaGrid = () => {
     )
 
 }
+
+

@@ -178,3 +178,13 @@ button{
   background-color: #D93F87;
 }
 
+.inputBuscadorPersonajes{
+  margin-bottom: 2em;
+  margin-top: 2em;
+  background-color: #C71000FF;
+}
+
+.inputBuscadorPersonajes::placeholder{
+  color: white;
+}
+

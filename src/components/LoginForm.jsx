@@ -30,7 +30,6 @@ export const LoginForm = () => {
         
     };
 
-
     return (
         <form onSubmit={handleSubmit} className="loginForm">
             <h1 className="loginH1">Iniciar Sesión</h1>
