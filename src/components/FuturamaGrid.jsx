@@ -1,5 +1,5 @@
 import { useFetchFuturamas } from "../hooks/useFetchFuturama"
-import { useEffect , useState } from "react";
+import { useState } from "react";
 import { CrearFuturama } from "./CrearFuturama";
 import { EditarFuturama } from "./EditarFuturama";
 import DataTable from "react-data-table-component";
@@ -10,7 +10,6 @@ import { BackTop , Image , Input } from "antd";
 export const FuturamaGrid = () => {
   
     const {futuramas, setFuturamas} = useFetchFuturamas()
-    const [Ordenado, setOrdenado] = useState(false)
 
     const [OpenForm, setOpenForm] = useState(false)
     const [OpenForm2, setOpenForm2] = useState(false)
