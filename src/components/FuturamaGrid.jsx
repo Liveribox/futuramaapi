@@ -11,12 +11,6 @@ export const FuturamaGrid = () => {
   
     const {futuramas, setFuturamas} = useFetchFuturamas()
     const [Ordenado, setOrdenado] = useState(false)
-    const [DatosIniciales, setDatosIniciales] = useState([])
-
-    useEffect(() => {
-        setDatosIniciales([...futuramas])
-    }, []);
-    
 
     const [OpenForm, setOpenForm] = useState(false)
     const [OpenForm2, setOpenForm2] = useState(false)
@@ -101,24 +95,12 @@ export const FuturamaGrid = () => {
       ];
 
 
-      const ordenarODesordenar = () => {
-        if (!Ordenado) {
-            const personajesOrdenados = [...futuramas];
-            personajesOrdenados.sort((a, b) => a.name.localeCompare(b.name));
-            setFuturamas(personajesOrdenados);
-            setOrdenado(true);
-        } else {
-            setFuturamas(DatosIniciales);
-            setOrdenado(false);
-        }
-    };
+      
 
       
 
     return(
         <div className="card-grid">
-            <button onClick={() =>{ordenarODesordenar()}}>{Ordenado ? 'Desordenar' : 'Ordenar'}</button>
-
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
             <button className="botonSalir" onClick={() => {navegar('/');}}>Salir</button>
 
