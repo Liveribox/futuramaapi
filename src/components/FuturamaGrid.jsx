@@ -104,7 +104,7 @@ export const FuturamaGrid = () => {
             {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm}/>}
             {OpenForm2 && <EditarFuturama id={Iddato} name={name} gender={gender}  specie={specie} image={image} editItem={editItem} setOpenForm2={setOpenForm2}/>}
 
-            <Input className="inputBuscadorPersonajes" placeholder="Buscar personaje" value={filtro} onChange={filtrarPersonajes}></Input>
+            <Input className="inputBuscadorPersonajes" placeholder="Buscar personajes" value={filtro} onChange={filtrarPersonajes}></Input>
 
             <DataTable
                 className="datatable"
